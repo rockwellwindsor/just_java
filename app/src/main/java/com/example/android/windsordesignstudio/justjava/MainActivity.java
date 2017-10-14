@@ -30,12 +30,7 @@ public class MainActivity extends Activity implements OnClickListener {
         if (savedInstanceState != null) {
             mQuantity = savedInstanceState.getInt(KEY_QUANTITY, 0);
             mTotal = savedInstanceState.getInt(KEY_TOTAL, 0);
-            quantityTextView.setText(mQuantity.toString());
-            if (mQuantity == 0) {
-                orderTotalTextView.setText("");
-            } else {
-                orderTotalTextView.setText("$ " + mTotal.toString() + " for " + mQuantity + " coffees.");
-            }
+            setTextViews(mQuantity, mTotal);
         } else {
             mQuantity = Integer.parseInt(quantityTextView.getText().toString());
             mTotal = Integer.parseInt(orderTotalTextView.getText().toString());
@@ -58,35 +53,34 @@ public class MainActivity extends Activity implements OnClickListener {
         } else if (v == increaseQuantityButton) {
             mQuantity = mQuantity + 1;
             mTotal = mTotal + 4;
-            quantityTextView.setText(mQuantity.toString());
-            if (mQuantity == 1) {
-                orderTotalTextView.setText("$ " + mTotal.toString() + " for " + mQuantity + " coffee.");
-            } else {
-                orderTotalTextView.setText("$ " + mTotal.toString() + " for " + mQuantity + " coffees.");
-            }
+            setTextViews(mQuantity, mTotal);
         } else {
             if(mQuantity > 0) {
                 mQuantity = mQuantity - 1;
                 if (mQuantity == 0) {
                     mTotal = mTotal - 4;
                     mQuantity = 0;
-                    quantityTextView.setText(mQuantity.toString());
-                    orderTotalTextView.setText("");
+                    setTextViews(mQuantity, mTotal);
                 } else {
                     mTotal = mTotal - 4;
-                    quantityTextView.setText(mQuantity.toString());
-                    if (mQuantity == 1) {
-                        orderTotalTextView.setText("$ " + mTotal.toString() + " for " + mQuantity + " coffee.");
-                    } else {
-                        orderTotalTextView.setText("$ " + mTotal.toString() + " for " + mQuantity + " coffees.");
-                    }
+                    setTextViews(mQuantity, mTotal);
                 }
             } else {
                 mQuantity = 0;
-                quantityTextView.setText(mQuantity.toString());
-                orderTotalTextView.setText("");
+                setTextViews(mQuantity, mTotal);
                 // maybe show a toast?
             }
+        }
+    }
+
+    public void setTextViews(Integer quantity, Integer total) {
+        quantityTextView.setText(mQuantity.toString());
+        if (quantity == 0) {
+            orderTotalTextView.setText("");
+        } else if (quantity == 1) {
+            orderTotalTextView.setText("$ " + total.toString() + " for " + quantity.toString() + " coffee.");
+        } else {
+            orderTotalTextView.setText("$ " + total.toString() + " for " + quantity.toString() + " coffees.");
         }
     }
 
