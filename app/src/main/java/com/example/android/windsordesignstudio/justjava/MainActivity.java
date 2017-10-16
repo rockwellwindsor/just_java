@@ -13,7 +13,6 @@ public class MainActivity extends Activity implements OnClickListener {
     private TextView orderTotalTextView;
     private Button orderButton;
     private Button increaseQuantityButton;
-    private Button decreaseQuantityButton;
     private static final String KEY_QUANTITY = "quantity";
     private static final String KEY_TOTAL = "total";
     Integer mQuantity;
@@ -42,7 +41,7 @@ public class MainActivity extends Activity implements OnClickListener {
         increaseQuantityButton = (Button) findViewById(R.id.increase_quantity_button);
         increaseQuantityButton.setOnClickListener(this);
 
-        decreaseQuantityButton = (Button) findViewById(R.id.decrease_quantity_button);
+        Button decreaseQuantityButton = (Button) findViewById(R.id.decrease_quantity_button);
         decreaseQuantityButton.setOnClickListener(this);
     }
 

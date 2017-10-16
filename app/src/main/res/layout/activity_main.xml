@@ -26,10 +26,10 @@
             android:layout_marginBottom="16dp">
 
         <Button
-            android:id="@+id/increase_quantity_button"
+            android:id="@+id/decrease_quantity_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/plus"
+            android:text="@string/minus"
             android:layout_weight="1"/>
 
         <TextView
@@ -42,10 +42,10 @@
             android:layout_weight="1"/>
 
         <Button
-            android:id="@+id/decrease_quantity_button"
+            android:id="@+id/increase_quantity_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/minus"
+            android:text="@string/plus"
             android:layout_weight="1"/>
 
     </LinearLayout>
